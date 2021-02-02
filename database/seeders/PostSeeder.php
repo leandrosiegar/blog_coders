@@ -16,6 +16,7 @@ class PostSeeder extends Seeder
     public function run()
     {
         $posts = Post::factory(100)->create();
+
         foreach ($posts as $post) {
             Image::factory(1)->create(
                 [
@@ -30,8 +31,8 @@ class PostSeeder extends Seeder
                 rand(1,4),
                 rand(5,8)
             ]);
-        }
 
+        }
 
     }
 }
