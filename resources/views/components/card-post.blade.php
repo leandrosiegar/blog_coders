@@ -1,4 +1,4 @@
-@props(['post'])
+@props(['post']) <!-- pasarle el parámetro q se va a usar y q se mandará desde la otra vista -->
 <article class="mb-8 bg-white shadow-lg rounded-lg overflow-hidden">
     <img class="w-full h-72 object-cover object-center"
         src="{{ Storage::url($post->image->url) }}" alt="">
