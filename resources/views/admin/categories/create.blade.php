@@ -37,7 +37,7 @@
                 </div>
 
                 {{ Form::submit('Crear categoría', array('type' => 'submit',
-                    'class' => 'btn btn-primary', 'onclick' => 'return checkFormProd()')) }}
+                    'class' => 'btn btn-primary', 'onclick' => '')) }}
             {!! Form::close() !!}
         </div>
     </div>
