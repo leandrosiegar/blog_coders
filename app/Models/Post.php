@@ -9,6 +9,8 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id', 'created_at', 'update_at'];
+
     // Relación uno a muchos (inversa)
     public function user() { // un post en concreto solo puede haber sido escrito por un único user
        //  return $this->belongsTo('App\Models\User');
