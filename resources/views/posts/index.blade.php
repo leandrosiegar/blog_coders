@@ -5,7 +5,7 @@
             @foreach ($posts as $post)
                 <article class="w-full h-80 bg-covert bg-center
                     @if ($loop->first) md:col-span-2 @endif"
-                    style="background-image: url({{ Storage::url($post->image->url) }})">
+                    style="background-image: url(@if ($post->image) {{ Storage::url($post->image->url) }} @else https://cdn.pixabay.com/photo/2020/03/23/19/17/jack-russel-4961793_960_720.jpg @endif)">
 
                     <div class="mt-2">
                         @foreach ($post->tags as $tag)

@@ -258,12 +258,14 @@ return [
         ['header' => 'OPCIONES DEL BLOG'],
         [
             'text'       => 'Lista de posts',
-            'url'        => 'admin.posts.index',
+            // 'url'        => 'admin.posts.index',
+            'route'        => 'admin.posts.index',
             'icon' => 'fas fa-fw fa-clipboard'
         ],
         [
             'text'       => 'Crear nuevo post',
-            'url'        => 'admin.posts.create',
+            // 'url'        => 'admin.posts.create',
+            'route'        => 'admin.posts.create',
             'icon' => 'fas fa-fw fa-file'
         ],
 

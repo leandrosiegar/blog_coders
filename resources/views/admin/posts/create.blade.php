@@ -10,7 +10,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            {!! Form::open(array('route' => 'admin.posts.store')) !!}
+            {!! Form::open(array('route' => 'admin.posts.store', 'files' => true)) !!}
 
                 {!! Form::hidden('user_id', auth()->user()->id) !!}
 
@@ -76,6 +76,25 @@
                     @enderror
                 </div>
 
+                <div class="row">
+                    <div class="col">
+                        <div class="image-wrapper"> <!-- imagen por defecto si no tiene imagen -->
+                            <img id="imgDelPost" src="https://cdn.pixabay.com/photo/2020/03/23/19/17/jack-russel-4961793_960_720.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            {!! Form::label('file', 'Imagen que se mostrará en el post:') !!}
+                            {!! Form::file('file', ['class' => 'form-control-file', 'accept' => 'image/*']) !!}
+                        </div>
+                    </div>
+
+                    @error('file')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+
+
                 <div class="form-group">
                     {!! Form::label('extract', 'Extracto:') !!}
                     {!! Form::textarea('extract', null, ['class' => 'form-control']) !!}
@@ -99,6 +118,22 @@
             {!! Form::close() !!}
         </div>
     </div>
+@stop
+
+
+@section('css')
+    <style>
+        .image-wrapper {
+            position:relative;
+            padding-bottom: 56.25%;
+        }
+        .image-wrapper img {
+            position:absolute;
+            object-fit: cover;
+            width:100%;
+            height:100%;
+        }
+    </style>
 @stop
 
 @section('js')
@@ -127,5 +162,21 @@
             .catch( error => {
                 console.error( error );
             } );
+    </script>
+
+    <script>
+        //Cambiar imagen
+            document.getElementById("file").addEventListener('change', cambiarImagen);
+
+            function cambiarImagen(event){
+                var file = event.target.files[0];
+
+                var reader = new FileReader();
+                reader.onload = (event) => {
+                    document.getElementById("imgDelPost").setAttribute('src', event.target.result);
+                };
+
+                reader.readAsDataURL(file);
+            }
     </script>
 @stop
