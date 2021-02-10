@@ -11,8 +11,6 @@
     <div class="card">
         <div class="card-body">
             {!! Form::open(array('route' => 'admin.posts.store', 'files' => true)) !!}
-                {!! Form::hidden('user_id', auth()->user()->id) !!}
-
                 @include('admin.posts.partials.form')
 
                 {{ Form::submit('Crear post', array('type' => 'submit',
