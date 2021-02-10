@@ -82,6 +82,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        $this->authorize('esAutorDelPost', $post);
+
         $categories = Category::pluck('name', 'id');
         $tags = Tag::all();
         return view('admin.posts.edit', compact('post', 'categories', 'tags'));
@@ -95,6 +97,9 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(PostRequest $request, Post $post) {  // PostRequest ya se encarga de hacer las validaciones
+
+        $this->authorize('esAutorDelPost', $post);
+
         $post->update($request->all());
 
         if ($request->file('file')) {
@@ -130,6 +135,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        $this->authorize('esAutorDelPost', $post);
         $post->delete();
         return redirect()->route('admin.posts.index')->with('info','El post se borró correctamente');
 
