@@ -236,8 +236,15 @@ return [
         ],
         [
             'text'        => 'Dashboard',
-            'url'         => 'admin',
+            // 'url'         => 'admin.home.index',
+            'route'         => 'admin.home',
             'icon'        => 'fas fa-tachometer-alt fa-fw',
+        ],
+        [
+            'text'        => 'Usuarios',
+            // 'url'         => 'admin.users',
+            'route'         => 'admin.users.index',
+            'icon'        => 'fas fa-users',
         ],
         ['header' => 'ADMINISTRADOR'],
         [
