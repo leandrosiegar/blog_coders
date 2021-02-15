@@ -26,12 +26,12 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'admin.users.edit'])->syncRoles([$roleAdmin]);
         Permission::create(['name' => 'admin.users.update'])->syncRoles([$roleAdmin]);
 
-        Permission::create(['name' => 'admin.categories.index'])->syncRoles([$roleAdmin]);
+        Permission::create(['name' => 'admin.categories.index'])->syncRoles([$roleAdmin, $roleBlogger]);
         Permission::create(['name' => 'admin.categories.create'])->syncRoles([$roleAdmin]);
         Permission::create(['name' => 'admin.categories.edit'])->syncRoles([$roleAdmin]);
         Permission::create(['name' => 'admin.categories.destroy'])->syncRoles([$roleAdmin]);
 
-        Permission::create(['name' => 'admin.tags.index'])->syncRoles([$roleAdmin]);
+        Permission::create(['name' => 'admin.tags.index'])->syncRoles([$roleAdmin, $roleBlogger]);
         Permission::create(['name' => 'admin.tags.create'])->syncRoles([$roleAdmin]);
         Permission::create(['name' => 'admin.tags.edit'])->syncRoles([$roleAdmin]);
         Permission::create(['name' => 'admin.tags.destroy'])->syncRoles([$roleAdmin]);
@@ -40,8 +40,5 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'admin.posts.create'])->syncRoles([$roleAdmin,$roleBlogger]);
         Permission::create(['name' => 'admin.posts.edit'])->syncRoles([$roleAdmin,$roleBlogger]);
         Permission::create(['name' => 'admin.posts.destroy'])->syncRoles([$roleAdmin,$roleBlogger]);
-
-
-
     }
 }
